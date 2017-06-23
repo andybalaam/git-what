@@ -6,6 +6,22 @@ Think of it as a combination of `git branch`, `git status` and `git log`
 intended to answer the common question "what was I doing?" when you are
 working on several branches simultaneously.
 
+## Download and install
+
+To install:
+
+```bash
+git clone https://github.com/andybalaam/git-what.git
+cd git-what
+sudo make install
+```
+
+To uninstall:
+
+```bash
+sudo make uninstall
+```
+
 ## Examples
 
 To see what is happening on your many branches, type `git what`:
@@ -40,6 +56,8 @@ $ what
 -- Changes on master --
  M README.md
  ```
+
+Where your terminal supports it, the output is coloured.
 
 ## License
 
