@@ -5,6 +5,15 @@
 set -e
 set -u
 
+if git rev-parse --verify develop > /dev/null 2>&1; then
+{
+    MAINBRANCH=develop
+}
+else
+{
+    MAINBRANCH=master
+}; fi
+
 function current-branch()
 {
     git rev-parse --abbrev-ref HEAD
@@ -36,7 +45,7 @@ function print-commits()
 {
     B="${1}"
 
-    git log --abbrev-commit --pretty=oneline "master..${B}"
+    git log --abbrev-commit --pretty=oneline "${MAINBRANCH}..${B}"
 }
 
 function leftpad()
