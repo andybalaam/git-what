@@ -1,0 +1,92 @@
+#!/bin/bash
+
+# git what Copyright (C) 2017 Andy Balaam, released under GPLv2 or later.
+
+set -e
+set -u
+
+function current-branch()
+{
+    git rev-parse --abbrev-ref HEAD
+}
+
+function branches()
+{
+    git for-each-ref refs/heads --format="%(refname:short)"
+}
+
+function print-branch-name()
+{
+    B="${1}"
+    CURRENT="${2}"
+
+    if [ "${B}" == "${CURRENT}" ]; then
+    {
+        echo -en '* \033[32m'
+    }
+    else
+    {
+        echo -en '  \033[34m'
+    }; fi
+
+    echo -e "${B}"'\033[0m'
+}
+
+function print-commits()
+{
+    B="${1}"
+
+    git log --abbrev-commit --pretty=oneline "master..${B}"
+}
+
+function leftpad()
+{
+    sed 's/^/    /'
+}
+
+function print-changes()
+{
+    CURRENT="${1}"
+    STATUS="${2}"
+
+    echo -e '-- Changes on \033[32m'"${CURRENT}"'\033[0m --'
+
+    SHORT_STATUS=$(head -n 5 <<<"${STATUS}")
+
+    git -c color.status=always status --short | head -n 5
+    if [ "${SHORT_STATUS}" != "${STATUS}" ]; then
+    {
+        echo -en '\033[31m... '
+        echo -n $(git status --porcelain | tail -n +6 | wc -l)
+        echo -e ' more ...\033[0m'
+    }; fi
+}
+
+function print-status()
+{
+    CURRENT="${1}"
+    STATUS=$(git status --short)
+
+    if [ "$(git status --porcelain | wc -l)" == "0" ]; then
+    {
+        echo "No changes."
+    }
+    else
+    {
+        print-changes "${CURRENT}" "${STATUS}"
+    }; fi
+}
+
+CURRENT=$(current-branch)
+
+echo "-- Branches --"
+
+for B in $(branches); do
+{
+    print-branch-name "${B}" "${CURRENT}"
+    print-commits "${B}" | leftpad
+    echo
+}; done
+
+print-status "${CURRENT}"
+
