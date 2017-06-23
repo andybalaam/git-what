@@ -55,4 +55,4 @@ $ what
 ## License
 
 git what is Copyright (C) 2017 Andy Balaam and is released under the
-[Gnu GPLv2](LICENSE.md) or later.
+[GNU GPLv2](LICENSE.md) or later.
