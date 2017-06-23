@@ -30,4 +30,4 @@ $ git what
 ## License
 
 git what is Copyright (C) 2017 Andy Balaam and is released under the
-[Gnu GPLv2](LICENSE) or later.
+[Gnu GPLv2](LICENSE.md) or later.
