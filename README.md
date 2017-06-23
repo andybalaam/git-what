@@ -2,6 +2,8 @@
 
 Print a summary of your git branches.
 
+![screenshot](https://raw.githubusercontent.com/andybalaam/git-what/master/screenshot.png)
+
 Think of it as a combination of `git branch`, `git status` and `git log`
 intended to answer the common question "what was I doing?" when you are
 working on several branches simultaneously.
@@ -22,13 +24,9 @@ To uninstall:
 sudo make uninstall
 ```
 
-## Examples
+## Usage
 
-To see what is happening on your many branches, type `git what`:
-
-![screenshot](https://raw.githubusercontent.com/andybalaam/git-what/master/screenshot.png)
-
-Or, just `what`:
+To see what is happening on your many branches, type `git what`, or just `what`:
 
 ```
 $ what
