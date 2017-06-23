@@ -46,7 +46,7 @@ $ git what
 ?? rabbit-escape-engine/test/rabbitescape/engine/Fireballs.java
 ```
 
-or just `what`;
+or just `what`:
 
 ```
 $ what
