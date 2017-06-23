@@ -26,8 +26,12 @@ sudo make uninstall
 
 To see what is happening on your many branches, type `git what`:
 
+![screenshot](https://raw.githubusercontent.com/andybalaam/git-what/master/screenshot.png)
+
+Or, just `what`:
+
 ```
-$ git what
+$ what
 -- Branches --
 * master
 
@@ -46,18 +50,7 @@ $ git what
 ?? rabbit-escape-engine/test/rabbitescape/engine/Fireballs.java
 ```
 
-or just `what`:
-
-```
-$ what
--- Branches --
-* master
-
--- Changes on master --
- M README.md
- ```
-
-Where your terminal supports it, the output is coloured.
+(Where your terminal supports it, the output is coloured.)
 
 ## License
 
