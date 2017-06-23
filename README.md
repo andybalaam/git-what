@@ -27,16 +27,19 @@ $ git what
 
 -- Changes on master --
  M rabbit-escape-engine/test/rabbitescape/engine/CallTracker.java
-?? rabbit-escape-engine/test/rabbitescape/engine/Fireballs.java```
+?? rabbit-escape-engine/test/rabbitescape/engine/Fireballs.java
+```
 
 or just `what`;
 
-```$ what
+```
+$ what
 -- Branches --
 * master
 
 -- Changes on master --
- M README.md```
+ M README.md
+ ```
 
 ## License
 
