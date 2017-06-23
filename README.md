@@ -6,6 +6,10 @@ Think of it as a combination of `git branch`, `git status` and `git log`
 intended to answer the common question "what was I doing?" when you are
 working on several branches simultaneously.
 
+## Examples
+
+To see what is happening on your many branches, type `git what`:
+
 ```
 $ git what
 -- Branches --
@@ -23,9 +27,16 @@ $ git what
 
 -- Changes on master --
  M rabbit-escape-engine/test/rabbitescape/engine/CallTracker.java
-?? rabbit-escape-engine/test/rabbitescape/engine/Fireballs.java
+?? rabbit-escape-engine/test/rabbitescape/engine/Fireballs.java```
 
-```
+or just `what`;
+
+```$ what
+-- Branches --
+* master
+
+-- Changes on master --
+ M README.md```
 
 ## License
 
