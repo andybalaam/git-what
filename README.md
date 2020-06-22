@@ -31,7 +31,7 @@ To see what is happening on your many branches, type `git what`, or just `what`:
 ```
 $ what
 -- Branches --
-* master
+* main
 
   no-ant-compile
     f925838 Experiment with compiling without Ant
@@ -43,7 +43,7 @@ $ what
   water-animation
     3b62858 WIP - attempts to fix water animation
 
--- Changes on master --
+-- Changes on main --
  M rabbit-escape-engine/test/rabbitescape/engine/CallTracker.java
 ?? rabbit-escape-engine/test/rabbitescape/engine/Fireballs.java
 ```
