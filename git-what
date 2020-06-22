@@ -9,6 +9,10 @@ if git rev-parse --verify develop > /dev/null 2>&1; then
 {
     MAINBRANCH=develop
 }
+else if git rev-parse --verify main > /dev/null 2>&1; then
+{
+    MAINBRANCH=main
+}
 else
 {
     MAINBRANCH=master
