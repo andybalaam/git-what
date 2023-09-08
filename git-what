@@ -18,6 +18,8 @@ else
     MAINBRANCH=master
 }; fi
 
+declare -A COMMITS
+
 function current-branch()
 {
     git rev-parse --abbrev-ref HEAD
@@ -49,7 +51,28 @@ function print-commits()
 {
     B="${1}"
 
-    git log --abbrev-commit --pretty=oneline "${MAINBRANCH}..${B}"
+    git log --abbrev-commit --pretty=oneline "${MAINBRANCH}..${B}" | while read COMMIT LINE; do
+        set +u
+        EXISTING_BRANCH="${COMMITS[${COMMIT}]}"
+        set -u
+        if [[ -n "${EXISTING_BRANCH}" && "${EXISTING_BRANCH}" != "${B}" ]]; then
+            echo "  -> ${EXISTING_BRANCH}"
+            break
+        else
+            echo "${COMMIT} ${LINE}"
+        fi
+    done
+}
+
+function capture-commits()
+{
+    B="${1}"
+
+    COMMIT=$(git log --abbrev-commit --pretty="format:%h" "${MAINBRANCH}..${B}" | head -n 1)
+
+    if  [ -n "${COMMIT}" ]; then
+        COMMITS[${COMMIT}]="${B}"
+    fi
 }
 
 function leftpad()
@@ -91,6 +114,13 @@ function print-status()
 }
 
 CURRENT=$(current-branch)
+
+for B in $(branches); do
+{
+    capture-commits "${B}"
+}; done
+
+for K in "${!COMMITS[@]}"; do echo $K ${COMMITS[$K]}; done
 
 for B in $(branches); do
 {
