@@ -92,8 +92,6 @@ function print-status()
 
 CURRENT=$(current-branch)
 
-echo "-- Branches --"
-
 for B in $(branches); do
 {
     print-branch-name "${B}" "${CURRENT}"
