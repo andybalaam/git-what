@@ -120,8 +120,6 @@ for B in $(branches); do
     capture-commits "${B}"
 }; done
 
-for K in "${!COMMITS[@]}"; do echo $K ${COMMITS[$K]}; done
-
 for B in $(branches); do
 {
     print-branch-name "${B}" "${CURRENT}"
